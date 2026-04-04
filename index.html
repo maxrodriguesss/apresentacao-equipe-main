@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Equipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-sans leading-normal tracking-normal overflow-x-hidden min-h-screen relative z-0">
+
+    <!-- Logo — canto superior esquerdo (fixa, sobreposta) -->
+    <div style="position: fixed; top: 24px; left: 24px; z-index: 50;">
+        <img src="assets/img/logo.png" alt="Logo Suporte CCL" style="height: 72px; width: auto;">
+    </div>
+
+    <!-- Mascote — canto inferior direito (fixo, sobreposto) -->
+    <div style="position: fixed; bottom: 0; right: 24px; z-index: 50;">
+        <img src="assets/img/construlino.png" alt="Mascote" style="height: 180px; width: auto; display: block;">
+    </div>
+
+    <section id="team" class="min-h-screen flex items-center justify-center overflow-hidden w-full relative z-20"
+             data-aos="fade-up" data-aos-duration="1000">
+
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in text-white">SUPORTE CCL</h3>
+
+            <div class="relative w-full max-w-4xl mx-auto group">
+                <div id="carousel" class="flex transition-transform duration-500 ease-in-out"></div>
+
+                <button id="prevBtn"
+                    class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200
+                           transition-all duration-300 ml-4 opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <button id="nextBtn"
+                    class="absolute top-1/2 right-0 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-200
+                           transition-all duration-300 mr-4 opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <div id="carousel-indicators" class="flex justify-center mt-8 space-x-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, mirror: false, duration: 300000, easing: 'ease-out-cubic' });
+    </script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
