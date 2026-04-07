@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "SUPORTE A CONSULTORES",
                 "ERROS DEVOLUÇÃO"
             ],
-            image: "assets/img/pablo.png",
+            image: "assets/img/Pablo.png",
         },
         {
             name: "Teilor Apolinário",
