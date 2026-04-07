@@ -125,12 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createMemberCard(member) {
         const card = document.createElement('div');
 
-
-        card.classList.add(
-            'team-member-card', 'bg-white', 'rounded-lg', 'shadow-xl',
-            'p-8', 'text-center', 'transform', 'scale-90', 'opacity-50',
-            'flex-shrink-0', 'w-full', 'max-w-md', 'mx-auto'
-        );
+        card.classList.add('team-member-card', 'flex-shrink-0', 'w-full');
 
         const assignmentsHtml = member.bio
             .map((assignment, idx) => `<span class="assignment-item" style="animation-delay:${50 * idx}ms;">${assignment}</span>`)
@@ -138,11 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
             <div class="photo-wrapper">
-                <img src="${member.image}" class="profile-photo">
+                <img src="${member.image}" class="profile-photo" alt="${member.name}">
             </div>
-            <h4 class="text-2xl font-bold text-gray-800 mb-2">${member.name}</h4>
-            <p class="role-text-color font-semibold mb-4 text-lg">${member.role}</p>
-            <div class="assignments-list text-base mb-6">${assignmentsHtml}</div>
+            <h4 class="member-name">${member.name}</h4>
+            <p class="role-text-color member-role">${member.role}</p>
+            <div class="assignments-list">${assignmentsHtml}</div>
         `;
 
         return card;
