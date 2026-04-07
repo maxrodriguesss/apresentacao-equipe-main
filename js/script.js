@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/img/Edio.png",
         },
         {
-            name: "Gabrielle Santos",
+            name: "Gabrielle Amatte Santos",
             role: "Jovem Aprendiz",
             bio: [
                 "SMTP",
