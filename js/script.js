@@ -31,19 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             image: "assets/img/Edio.png",
         },
-        {
-            name: "Gabrielle Amatte Santos",
-            role: "Jovem Aprendiz",
-            bio: [
-                    "CADASTRO DE APÓLICE",
-                    "CHAVE DE REGISTRO",
-                    "INSTALAÇÕES EM GERAL",
-                    "SMTP",
-                    "SUGESTÕES DE MELHORIA",
-                    "SUPORTE A CONSULTORES"
-            ],
-            image: "assets/img/Gabrielle.png",
-        },
+        // {
+        //     name: "Gabrielle Amatte Santos",
+        //     role: "Jovem Aprendiz",
+        //     bio: [
+        //             "CADASTRO DE APÓLICE",
+        //             "CHAVE DE REGISTRO",
+        //             "INSTALAÇÕES EM GERAL",
+        //             "SMTP",
+        //             "SUGESTÕES DE MELHORIA",
+        //             "SUPORTE A CONSULTORES"
+        //     ],
+        //     image: "assets/img/Gabrielle.png",
+        // },
         {
             name: "Jeannelis Marquez Napoles",
             role: "Analista de Suporte de Sistemas Junior (Expansão Internacional)",
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "CADASTRO DE APÓLICE",
                     "CHAVE DE REGISTRO",
                     "GERAR RELATÓRIOS",
+                    "IMPLANTAÇÃO DE LOJAS",
                     "INSTALAÇÕES EM GERAL",
                     "ORIENTAÇÃO DE ACESSOS",
                     "SMTP",
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             role: "Analista de Suporte de Sistemas Junior",
             bio: [
                     "CADASTRO DE APÓLICE",
+                    "CADASTRO DE EQUIPAMENTOS",
                     "CHAVE DE REGISTRO",
                     "CONTRATO DIGITAL",
                     "ERRO BOLETOS",
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "ERROS DEVOLUÇÃO",
                     "HOMOLOGAÇÃO BOLETOS",
                     "HOMOLOGAÇÃO PIX DINAMICO",
+                    "IMPLANTAÇÃO DE LOJAS",
                     "MOVIMENTAÇÕES FINANCEIRAS",
                     "NFE EM GERAL",
                     "NFSE EM GERAL",
@@ -81,12 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/img/Max.png",
         },
         {
-            name: "Pablo Ramos",
+            name: "Pablo Novais Ramos",
             role: "Analista de Suporte de Sistemas Junior",
             bio: [
                     "AFASTAMENTO DIGITAL",
                     "CADASTRO DE APÓLICE",
                     "CADASTRO DE EQUIPAMENTOS",
+                    "CCL-X",
                     "CONTAGEM DIGTAL",
                     "CONTRATO DIGITAL",
                     "ERRO BOLETOS",
@@ -95,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "FATURAMENTO / EMISSÃO DE CONTRATOS",
                     "HOMOLOGAÇÃO BOLETOS",
                     "HOMOLOGAÇÃO PIX DINAMICO",
+                    "IMPLANTAÇÃO DE LOJAS",
                     "ROTEIRO DIGITAL",
                     "SANKHYA",
                     "SUPORTE A CONSULTORES"
@@ -102,7 +107,20 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/img/Pablo.png",
         },
         {
-            name: "Teilor Apolinário",
+            name: "Rafael Fernandes",
+            role: "Estagiario de Suporte de Sistemas",
+            bio: [
+                    "CADASTRO DE APÓLICE",
+                    "CCL-X",
+                    "CHAVE DE REGISTRO",
+                    "GERAR RELATÓRIOS",
+                    "INSTALAÇÕES EM GERAL",
+                    "SMTP",
+            ],
+            image: "assets/img/Rafael.png",
+        },
+        {
+            name: "Teilor Willian Apolinário",
             role: "Analista de Suporte de Sistemas Junior",
             bio: [
                     "AFASTAMENTO DIGITAL",
