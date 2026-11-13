@@ -10,13 +10,36 @@
 body {
     /* Foto da equipe no fundo, com véu azul para manter a leitura */
     background:
-        linear-gradient(rgba(13, 43, 82, 0.55), rgba(13, 43, 82, 0.55)),
         url("../assets/img/equipe.webp") center 30% / cover no-repeat fixed,
         var(--color-background);
     min-height: 100vh;
     color: var(--color-text-light);
     position: relative;
     z-index: 0;
+}
+
+/* Véu azul sobre a foto de fundo (some na página da equipe) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 43, 82, 0.55);
+    z-index: -1;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+}
+
+body.show-team::before {
+    opacity: 0;
+}
+
+/* Página da equipe: nenhum card visível, só a foto de fundo */
+.team-member-card.group-card {
+    background: transparent;
+}
+
+body.show-team .team-member-card {
+    opacity: 0 !important;
 }
 
 /* ── Carrossel ── */

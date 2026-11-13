@@ -16,6 +16,8 @@ requestWakeLock();
 
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = [
+        // Página só com a foto da equipe no fundo (sem card na frente)
+        { group: true, name: "Equipe Suporte CCL" },
         {
             name: "Edio Levi da Silva Lopes",
             role: "Analista de Suporte de Sistemas Sênior",
@@ -181,6 +183,12 @@ const carousel = document.getElementById('carousel');
         card.classList.add('team-member-card', 'flex-shrink-0', 'w-full');
         card.dataset.realIndex = realIndex;
  
+        if (member.group) {
+            card.classList.add('group-card');
+            card.setAttribute('aria-label', member.name);
+            return card;
+        }
+
         const assignmentsHtml = member.bio
             .map((a, i) => `<span class="assignment-item" style="animation-delay:${50 * i}ms;">${a}</span>`)
             .join('');
@@ -208,7 +216,13 @@ const carousel = document.getElementById('carousel');
         });
     }
  
+    // Na página da equipe, esconde os cards e tira o véu azul do fundo
+    function updateTeamMode() {
+        document.body.classList.toggle('show-team', !!teamMembers[currentIndex].group);
+    }
+
     function updateIndicators() {
+        updateTeamMode();
         carouselIndicators.querySelectorAll('.carousel-indicator').forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
         });
@@ -242,6 +256,7 @@ const carousel = document.getElementById('carousel');
         domIndex = total + currentIndex;
         positionNow();
         buildIndicators();
+        updateTeamMode();
     }
  
     // ── Posicionamento ───────────────────────────────────────────────
