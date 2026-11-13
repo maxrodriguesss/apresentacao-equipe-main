@@ -42,6 +42,16 @@ body.show-team .team-member-card {
     opacity: 0 !important;
 }
 
+/* Neve caindo: acima da foto de fundo, abaixo dos cards (z-20) */
+#neve {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
 /* ── Carrossel ── */
 #carousel {
     display: flex;
