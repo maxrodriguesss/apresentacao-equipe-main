@@ -42,6 +42,18 @@ body.show-team .team-member-card {
     opacity: 0 !important;
 }
 
+/* Página da equipe: sem logo, título, Papai Noel e mascote */
+#logo-topo, #mascote, #titulo, #papai-noel {
+    transition: opacity 1.2s ease;
+}
+
+body.show-team #logo-topo,
+body.show-team #mascote,
+body.show-team #titulo,
+body.show-team #papai-noel {
+    opacity: 0 !important; /* !important vence o fade-in do título */
+}
+
 /* Neve caindo: acima da foto de fundo, abaixo dos cards (z-20) */
 #neve {
     position: fixed;
