@@ -16,6 +16,8 @@ requestWakeLock();
 
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = [
+        // Página só com a foto da equipe no fundo (sem card na frente)
+        { group: true, name: "Equipe Suporte CCL" },
         {
             name: "Edio Levi da Silva Lopes",
             role: "Analista de Suporte de Sistemas Sênior",
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "SUPORTE N3",
                     "TRANSFERENCIAS - MOVIMENTAÇÕES FINANCEIRAS"
             ],
-            image: "assets/img/Edio.png",
+            image: "assets/img/Edio.jpg",
         },
         // {
         //     name: "Gabrielle Amatte Santos",
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "SMTP",
                     "SUPORTE A CONSULTORES (INTERNACIONAL)"
             ],
-            image: "assets/img/Jeannelis.png",
+            image: "assets/img/Jeannelis.jpg",
         },
         {
             name: "Julia Dias Magalhães",
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Julia.png",
+            image: "assets/img/Julia.jpg",
         },
         // {
         //     name: "Maxwell Rodrigues",
@@ -130,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Rafael.png",
+            image: "assets/img/Rafael.jpg",
         },
         {
             name: "Teilor Willian Apolinário",
@@ -147,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "NFE EM GERAL",
                     "REEMBOLSO",
             ],
-            image: "assets/img/Teilor.png",
+            image: "assets/img/Teilor.jpg",
         },
         {
             name: "Yasmin Caroline Scaglia",
@@ -160,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Yasmin.png",
+            image: "assets/img/Yasmin.jpg",
         },
     ];
 
@@ -181,6 +183,12 @@ const carousel = document.getElementById('carousel');
         card.classList.add('team-member-card', 'flex-shrink-0', 'w-full');
         card.dataset.realIndex = realIndex;
  
+        if (member.group) {
+            card.classList.add('group-card');
+            card.setAttribute('aria-label', member.name);
+            return card;
+        }
+
         const assignmentsHtml = member.bio
             .map((a, i) => `<span class="assignment-item" style="animation-delay:${50 * i}ms;">${a}</span>`)
             .join('');
@@ -208,7 +216,13 @@ const carousel = document.getElementById('carousel');
         });
     }
  
+    // Na página da equipe, esconde os cards e tira o véu azul do fundo
+    function updateTeamMode() {
+        document.body.classList.toggle('show-team', !!teamMembers[currentIndex].group);
+    }
+
     function updateIndicators() {
+        updateTeamMode();
         carouselIndicators.querySelectorAll('.carousel-indicator').forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
         });
@@ -242,6 +256,7 @@ const carousel = document.getElementById('carousel');
         domIndex = total + currentIndex;
         positionNow();
         buildIndicators();
+        updateTeamMode();
     }
  
     // ── Posicionamento ───────────────────────────────────────────────

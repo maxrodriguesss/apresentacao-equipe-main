@@ -8,11 +8,75 @@
 }
 
 body {
-    background: var(--color-background);
+    /* Foto da equipe no fundo, com véu azul para manter a leitura */
+    background:
+        url("../assets/img/equipe.webp") center 30% / cover no-repeat fixed,
+        var(--color-background);
     min-height: 100vh;
     color: var(--color-text-light);
     position: relative;
     z-index: 0;
+}
+
+/* Véu azul sobre a foto de fundo (some na página da equipe) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 43, 82, 0.55);
+    z-index: -1;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+}
+
+body.show-team::before {
+    opacity: 0;
+}
+
+/* Página da equipe: nenhum card visível, só a foto de fundo */
+.team-member-card.group-card {
+    background: transparent;
+}
+
+body.show-team .team-member-card {
+    opacity: 0 !important;
+}
+
+/* Neve caindo: acima da foto de fundo, abaixo dos cards (z-20) */
+#neve {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Espaço extra entre o título e os cards para o trenó passar */
+#team .group {
+    margin-top: 150px; /* soma com o mb-20 (80px) do título: as margens se sobrepõem */
+}
+
+/* Papai Noel com as renas voando por cima dos cards */
+#papai-noel {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    height: 190px;
+    width: auto;
+    max-width: none;
+    margin-bottom: -56px; /* o GIF tem espaço vazio embaixo */
+    z-index: 40;
+    pointer-events: none;
+    animation: voarPapaiNoel 16s linear infinite;
+}
+
+@keyframes voarPapaiNoel {
+    0%   { transform: translateX(calc(-50vw - 380px)) translateY(0); }
+    25%  { transform: translateX(calc(-25vw - 180px)) translateY(-10px); }
+    50%  { transform: translateX(-180px) translateY(0); }
+    75%  { transform: translateX(calc(25vw - 180px)) translateY(-10px); }
+    100% { transform: translateX(calc(50vw + 20px)) translateY(0); }
 }
 
 /* ── Carrossel ── */
