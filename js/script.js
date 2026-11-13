@@ -339,14 +339,30 @@ const carousel = document.getElementById('carousel');
         isTransitioning = false;
     });
  
-    // ── Autoplay ─────────────────────────────────────────────────────
+    // ── Autoplay sincronizado com o Papai Noel ───────────────────────
+    // O colaborador muda toda vez que o trenó termina de atravessar a tela
+    // (fim de cada volta da animação CSS "voarPapaiNoel").
+    const papaiNoel = document.getElementById('papai-noel');
+ 
     function startAutoplay() {
-        autoplayInterval = setInterval(goNext, 13000);
+        if (papaiNoel) {
+            papaiNoel.addEventListener('animationiteration', goNext);
+        } else {
+            autoplayInterval = setInterval(goNext, 13000); // reserva, se o GIF não existir
+        }
     }
  
+    // Navegação manual: recomeça a travessia para a próxima troca
+    // continuar acontecendo no fim do trenó
     function resetAutoplay() {
-        clearInterval(autoplayInterval);
-        startAutoplay();
+        if (papaiNoel) {
+            papaiNoel.style.animation = 'none';
+            void papaiNoel.offsetWidth; // força o navegador a reiniciar a animação
+            papaiNoel.style.animation = '';
+        } else {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(goNext, 13000);
+        }
     }
  
     nextBtn.onclick = () => { goNext(); resetAutoplay(); };

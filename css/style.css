@@ -80,7 +80,7 @@ body.show-team #papai-noel {
     margin-bottom: -56px; /* o GIF tem espaço vazio embaixo */
     z-index: 40;
     pointer-events: none;
-    animation: voarPapaiNoel 16s linear infinite;
+    animation: voarPapaiNoel 13s linear infinite; /* = tempo de cada colaborador na tela */
 }
 
 @keyframes voarPapaiNoel {
