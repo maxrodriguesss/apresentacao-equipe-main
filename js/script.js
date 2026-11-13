@@ -167,8 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
     const carouselIndicators = document.getElementById('carousel-indicators');
  
     const total = teamMembers.length;
@@ -211,7 +209,6 @@ const carousel = document.getElementById('carousel');
             const dot = document.createElement('div');
             dot.classList.add('carousel-indicator');
             if (index === currentIndex) dot.classList.add('active');
-            dot.onclick = () => { jumpTo(index); resetAutoplay(); };
             carouselIndicators.appendChild(dot);
         });
     }
@@ -300,25 +297,6 @@ const carousel = document.getElementById('carousel');
         positionAnimated();
     }
  
-    function goPrev() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        domIndex--;
-        currentIndex = (currentIndex - 1 + total) % total;
-        setActiveCard();
-        updateIndicators();
-        positionAnimated();
-    }
- 
-    function jumpTo(index) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex = index;
-        domIndex = total + currentIndex;
-        setActiveCard();
-        updateIndicators();
-        positionAnimated();
-    }
  
     // ── Salto silencioso ao atingir clone ────────────────────────────
     carousel.addEventListener('transitionend', (e) => {
@@ -339,18 +317,20 @@ const carousel = document.getElementById('carousel');
         isTransitioning = false;
     });
  
-    // ── Autoplay ─────────────────────────────────────────────────────
+    // ── Autoplay sincronizado com o Papai Noel ───────────────────────
+    // O colaborador muda toda vez que o trenó termina de atravessar a tela
+    // (fim de cada volta da animação CSS "voarPapaiNoel").
+    const papaiNoel = document.getElementById('papai-noel');
+ 
     function startAutoplay() {
-        autoplayInterval = setInterval(goNext, 13000);
+        if (papaiNoel) {
+            papaiNoel.addEventListener('animationiteration', goNext);
+        } else {
+            autoplayInterval = setInterval(goNext, 13000); // reserva, se o GIF não existir
+        }
     }
  
-    function resetAutoplay() {
-        clearInterval(autoplayInterval);
-        startAutoplay();
-    }
  
-    nextBtn.onclick = () => { goNext(); resetAutoplay(); };
-    prevBtn.onclick = () => { goPrev(); resetAutoplay(); };
  
     buildCarousel();
     setTimeout(activateChips, 150);
