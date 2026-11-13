@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin da Equipe</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="topo">
+        <img src="assets/img/logo.png" alt="Casa do Construtor" class="topo-logo">
+        <div class="topo-titulo">
+            <h1>Admin da Equipe</h1>
+            <p>Edite os colaboradores que aparecem no carrossel da TV</p>
+        </div>
+        <div class="topo-acoes" id="acoes-sessao" hidden>
+            <a href="./" target="_blank" rel="noopener" class="btn btn-claro">Ver site</a>
+            <button type="button" class="btn btn-claro" id="btn-sair">Sair</button>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <!-- Login com token do GitHub -->
+        <section id="tela-login" class="painel" hidden>
+            <h2>Entrar</h2>
+            <p>
+                Para salvar alterações, cole um <strong>token do GitHub</strong> com permissão de escrita
+                no repositório <code id="nome-repo"></code>. Ele fica guardado só neste navegador.
+            </p>
+            <form id="form-login" class="form-login">
+                <label for="campo-token">Token</label>
+                <input type="password" id="campo-token" autocomplete="off" spellcheck="false"
+                       placeholder="github_pat_..." required>
+                <button type="submit" class="btn btn-primario">Entrar</button>
+            </form>
+            <p class="msg-erro" id="erro-login" hidden></p>
+            <details class="ajuda">
+                <summary>Como criar o token</summary>
+                <ol>
+                    <li>No GitHub, abra <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Settings › Developer settings › Fine-grained tokens › Generate new token</a>.</li>
+                    <li>Dê um nome (ex.: "Admin equipe") e escolha a validade.</li>
+                    <li>Em <em>Repository access</em>, marque <em>Only select repositories</em> e escolha este repositório.</li>
+                    <li>Em <em>Permissions › Repository permissions</em>, deixe <em>Contents</em> como <strong>Read and write</strong>.</li>
+                    <li>Clique em <em>Generate token</em>, copie e cole aqui.</li>
+                </ol>
+            </details>
+        </section>
+
+        <!-- Editor -->
+        <section id="tela-editor" hidden>
+            <div class="barra">
+                <button type="button" class="btn btn-claro" id="btn-adicionar">+ Adicionar colaborador</button>
+                <span class="status" id="status" role="status" aria-live="polite"></span>
+                <button type="button" class="btn btn-primario" id="btn-salvar" disabled>Salvar alterações</button>
+            </div>
+            <p class="dica">
+                A ordem abaixo é a ordem do carrossel. Colaboradores ocultos ficam guardados, mas não aparecem na TV.
+                Depois de salvar, o site atualiza em cerca de 1 minuto e a TV recarrega sozinha em até 2 minutos.
+            </p>
+            <div id="lista" class="lista"></div>
+        </section>
+
+        <p id="carregando" class="carregando">Carregando…</p>
+    </main>
+
+    <template id="modelo-colaborador">
+        <article class="colab">
+            <div class="colab-foto">
+                <img alt="">
+                <label class="btn btn-claro btn-pequeno">
+                    Trocar foto
+                    <input type="file" accept="image/*" class="campo-foto" hidden>
+                </label>
+            </div>
+            <div class="colab-dados">
+                <div class="linha">
+                    <label>Nome
+                        <input type="text" class="campo-nome" required>
+                    </label>
+                </div>
+                <div class="linha">
+                    <label>Cargo
+                        <input type="text" class="campo-cargo">
+                    </label>
+                </div>
+                <div class="linha">
+                    <span class="rotulo">Atividades</span>
+                    <div class="chips"></div>
+                    <div class="add-atividade">
+                        <input type="text" class="campo-atividade" placeholder="Nova atividade e Enter">
+                        <button type="button" class="btn btn-claro btn-pequeno btn-add-atividade">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="colab-controles">
+                <label class="toggle" title="Mostrar na TV">
+                    <input type="checkbox" class="campo-ativo">
+                    <span>Na TV</span>
+                </label>
+                <div class="ordem">
+                    <button type="button" class="btn btn-icone btn-subir" title="Mover para cima" aria-label="Mover para cima">▲</button>
+                    <button type="button" class="btn btn-icone btn-descer" title="Mover para baixo" aria-label="Mover para baixo">▼</button>
+                </div>
+                <button type="button" class="btn btn-perigo btn-pequeno btn-remover">Excluir</button>
+            </div>
+        </article>
+    </template>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
