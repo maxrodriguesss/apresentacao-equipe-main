@@ -46,6 +46,20 @@ body {
     transform: scale(1);
 }
 
+/* ── Card da foto da equipe (primeira página) ── */
+.team-member-card.group-card {
+    padding: 1.25rem;
+}
+
+.group-photo {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: center 35%;
+    border-radius: 0.9rem;
+    display: block;
+}
+
 /* ── Foto ── */
 .photo-wrapper {
     position: relative;

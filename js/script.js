@@ -17,6 +17,11 @@ requestWakeLock();
 document.addEventListener('DOMContentLoaded', () => {
     const teamMembers = [
         {
+            group: true,
+            name: "Equipe Suporte CCL",
+            image: "assets/img/equipe.webp",
+        },
+        {
             name: "Edio Levi da Silva Lopes",
             role: "Analista de Suporte de Sistemas Sênior",
             bio: [
@@ -181,6 +186,12 @@ const carousel = document.getElementById('carousel');
         card.classList.add('team-member-card', 'flex-shrink-0', 'w-full');
         card.dataset.realIndex = realIndex;
  
+        if (member.group) {
+            card.classList.add('group-card');
+            card.innerHTML = `<img src="${member.image}" class="group-photo" alt="${member.name}">`;
+            return card;
+        }
+
         const assignmentsHtml = member.bio
             .map((a, i) => `<span class="assignment-item" style="animation-delay:${50 * i}ms;">${a}</span>`)
             .join('');
