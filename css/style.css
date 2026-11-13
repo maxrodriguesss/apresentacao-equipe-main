@@ -10,7 +10,7 @@
 body {
     /* Foto da equipe no fundo, com véu azul para manter a leitura */
     background:
-        url("../assets/img/equipe.webp") center 30% / cover no-repeat fixed,
+        url("../assets/img/equipe-natal.webp") center 30% / cover no-repeat fixed,
         var(--color-background);
     min-height: 100vh;
     color: var(--color-text-light);
