@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "SUPORTE N3",
                     "TRANSFERENCIAS - MOVIMENTAÇÕES FINANCEIRAS"
             ],
-            image: "assets/img/Edio.png",
+            image: "assets/img/Edio.jpg",
         },
         // {
         //     name: "Gabrielle Amatte Santos",
