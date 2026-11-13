@@ -167,8 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
 const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
     const carouselIndicators = document.getElementById('carousel-indicators');
  
     const total = teamMembers.length;
@@ -211,7 +209,6 @@ const carousel = document.getElementById('carousel');
             const dot = document.createElement('div');
             dot.classList.add('carousel-indicator');
             if (index === currentIndex) dot.classList.add('active');
-            dot.onclick = () => { jumpTo(index); resetAutoplay(); };
             carouselIndicators.appendChild(dot);
         });
     }
@@ -300,25 +297,6 @@ const carousel = document.getElementById('carousel');
         positionAnimated();
     }
  
-    function goPrev() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        domIndex--;
-        currentIndex = (currentIndex - 1 + total) % total;
-        setActiveCard();
-        updateIndicators();
-        positionAnimated();
-    }
- 
-    function jumpTo(index) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex = index;
-        domIndex = total + currentIndex;
-        setActiveCard();
-        updateIndicators();
-        positionAnimated();
-    }
  
     // ── Salto silencioso ao atingir clone ────────────────────────────
     carousel.addEventListener('transitionend', (e) => {
@@ -352,21 +330,7 @@ const carousel = document.getElementById('carousel');
         }
     }
  
-    // Navegação manual: recomeça a travessia para a próxima troca
-    // continuar acontecendo no fim do trenó
-    function resetAutoplay() {
-        if (papaiNoel) {
-            papaiNoel.style.animation = 'none';
-            void papaiNoel.offsetWidth; // força o navegador a reiniciar a animação
-            papaiNoel.style.animation = '';
-        } else {
-            clearInterval(autoplayInterval);
-            autoplayInterval = setInterval(goNext, 13000);
-        }
-    }
  
-    nextBtn.onclick = () => { goNext(); resetAutoplay(); };
-    prevBtn.onclick = () => { goPrev(); resetAutoplay(); };
  
     buildCarousel();
     setTimeout(activateChips, 150);
