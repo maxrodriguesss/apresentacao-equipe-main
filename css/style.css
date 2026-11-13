@@ -52,6 +52,33 @@ body.show-team .team-member-card {
     pointer-events: none;
 }
 
+/* Espaço extra entre o título e os cards para o trenó passar */
+#team .group {
+    margin-top: 150px; /* soma com o mb-20 (80px) do título: as margens se sobrepõem */
+}
+
+/* Papai Noel com as renas voando por cima dos cards */
+#papai-noel {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    height: 190px;
+    width: auto;
+    max-width: none;
+    margin-bottom: -56px; /* o GIF tem espaço vazio embaixo */
+    z-index: 40;
+    pointer-events: none;
+    animation: voarPapaiNoel 16s linear infinite;
+}
+
+@keyframes voarPapaiNoel {
+    0%   { transform: translateX(calc(-50vw - 380px)) translateY(0); }
+    25%  { transform: translateX(calc(-25vw - 180px)) translateY(-10px); }
+    50%  { transform: translateX(-180px) translateY(0); }
+    75%  { transform: translateX(calc(25vw - 180px)) translateY(-10px); }
+    100% { transform: translateX(calc(50vw + 20px)) translateY(0); }
+}
+
 /* ── Carrossel ── */
 #carousel {
     display: flex;
