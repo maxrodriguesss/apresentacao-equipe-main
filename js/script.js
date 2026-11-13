@@ -14,156 +14,47 @@ document.addEventListener("visibilitychange", () => {
  
 requestWakeLock();
 
-document.addEventListener('DOMContentLoaded', () => {
+// ── Dados da equipe ──────────────────────────────────────────────
+async function carregarEquipe() {
+    try {
+        // no-store: a TV sempre pega a versão mais recente salva pelo admin
+        const resp = await fetch('data/equipe.json', { cache: 'no-store' });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const texto = await resp.text();
+        equipeCarregada = texto;
+        return JSON.parse(texto).colaboradores || [];
+    } catch (err) {
+        console.error('Não foi possível carregar data/equipe.json:', err);
+        return [];
+    }
+}
+
+// A cada 2 minutos confere se o admin salvou alterações; se sim, recarrega a TV
+let equipeCarregada = null;
+setInterval(async () => {
+    try {
+        const resp = await fetch('data/equipe.json', { cache: 'no-store' });
+        if (!resp.ok) return;
+        const texto = await resp.text();
+        if (equipeCarregada !== null && texto !== equipeCarregada) location.reload();
+    } catch (err) {}
+}, 2 * 60 * 1000);
+
+function escapeHtml(texto) {
+    return String(texto ?? '').replace(/[&<>"']/g, ch => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]
+    ));
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Os colaboradores ficam em data/equipe.json (editável pela página admin.html)
+    const colaboradores = await carregarEquipe();
     const teamMembers = [
         // Página só com a foto da equipe no fundo (sem card na frente)
         { group: true, name: "Equipe Suporte CCL" },
-        {
-            name: "Edio Levi da Silva Lopes",
-            role: "Analista de Suporte de Sistemas Sênior",
-            bio: [
-                    "BANCO DE OFERTAS",
-                    "FATURAMENTO / EMISSÃO DE CONTRATOS",
-                    "FECHAMENTO",
-                    "GERENCIAL",
-                    "REEMBOLSO",
-                    "SUGESTÃO DE MELHORIA",
-                    "SUPORTE N3",
-                    "TRANSFERENCIAS - MOVIMENTAÇÕES FINANCEIRAS"
-            ],
-            image: "assets/img/Edio.jpg",
-        },
-        // {
-        //     name: "Gabrielle Amatte Santos",
-        //     role: "Jovem Aprendiz",
-        //     bio: [
-        //             "CADASTRO DE APÓLICE",
-        //             "CHAVE DE REGISTRO",
-        //             "INSTALAÇÕES EM GERAL",
-        //             "SMTP",
-        //             "SUGESTÕES DE MELHORIA",
-        //             "SUPORTE A CONSULTORES"
-        //     ],
-        //     image: "assets/img/Gabrielle.png",
-        // },
-        {
-            name: "Jeannelis Marquez Napoles",
-            role: "Analista de Suporte de Sistemas Junior (Expansão Internacional)",
-            bio: [
-                    "CADASTRO DE APÓLICE",
-                    "CHAVE DE REGISTRO",
-                    "GERAR RELATÓRIOS",
-                    "IMPLANTAÇÃO DE LOJAS",
-                    "INSTALAÇÕES EM GERAL",
-                    "ORIENTAÇÃO DE ACESSOS",
-                    "SMTP",
-                    "SUPORTE A CONSULTORES (INTERNACIONAL)"
-            ],
-            image: "assets/img/Jeannelis.jpg",
-        },
-        {
-            name: "Julia Dias Magalhães",
-            role: "Analista de Suporte de Sistemas Junior",
-            bio: [
-                    "CADASTRO DE APÓLICE",
-                    "CCL-X",
-                    "CHAVE DE REGISTRO",
-                    "GERAR RELATÓRIOS",
-                    "INSTALAÇÕES EM GERAL",
-                    "SMTP",
-            ],
-            image: "assets/img/Julia.jpg",
-        },
-        // {
-        //     name: "Maxwell Rodrigues",
-        //     role: "Analista de Suporte de Sistemas Junior",
-        //     bio: [
-        //             "CADASTRO DE APÓLICE",
-        //             "CADASTRO DE EQUIPAMENTOS",
-        //             "CHAVE DE REGISTRO",
-        //             "CONTRATO DIGITAL",
-        //             "ERRO BOLETOS",
-        //             "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
-        //             "ERROS DEVOLUÇÃO",
-        //             "HOMOLOGAÇÃO BOLETOS",
-        //             "HOMOLOGAÇÃO PIX DINAMICO",
-        //             "IMPLANTAÇÃO DE LOJAS",
-        //             "MOVIMENTAÇÕES FINANCEIRAS",
-        //             "NFE EM GERAL",
-        //             "NFSE EM GERAL",
-        //             "ROTEIRO DIGITAL",
-        //             "SANKHYA",
-        //             "SMTP",
-        //             "TRANSFERENCIAS ESTOQUE - ERROS DE MOVIMENTAÇÕES"
-        //     ],
-        //     image: "assets/img/Max.png",
-        // },
-        // {
-        //     name: "Pablo Novais Ramos",
-        //     role: "Analista de Suporte de Sistemas Junior",
-        //     bio: [
-        //             "AFASTAMENTO DIGITAL",
-        //             "CADASTRO DE APÓLICE",
-        //             "CADASTRO DE EQUIPAMENTOS",
-        //             "CCL-X",
-        //             "CONTAGEM DIGTAL",
-        //             "CONTRATO DIGITAL",
-        //             "ERRO BOLETOS",
-        //             "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
-        //             "ERROS DEVOLUÇÃO",
-        //             "FATURAMENTO / EMISSÃO DE CONTRATOS",
-        //             "HOMOLOGAÇÃO BOLETOS",
-        //             "HOMOLOGAÇÃO PIX DINAMICO",
-        //             "IMPLANTAÇÃO DE LOJAS",
-        //             "ROTEIRO DIGITAL",
-        //             "SANKHYA",
-        //             "SUPORTE A CONSULTORES"
-        //     ],
-        //     image: "assets/img/Pablo.png",
-        // },
-        {
-            name: "Rafael Fernandes",
-            role: "Estagiario de Suporte de Sistemas",
-            bio: [
-                    "CADASTRO DE APÓLICE",
-                    "CCL-X",
-                    "CHAVE DE REGISTRO",
-                    "GERAR RELATÓRIOS",
-                    "INSTALAÇÕES EM GERAL",
-                    "SMTP",
-            ],
-            image: "assets/img/Rafael.jpg",
-        },
-        {
-            name: "Teilor Willian Apolinário",
-            role: "Analista de Suporte de Sistemas Junior",
-            bio: [
-                    "AFASTAMENTO DIGITAL",
-                    "BANCO DE OFERTAS",
-                    "CADASTRO DE APÓLICE",
-                    "CONTAGEM DIGITAL",
-                    "ERRO RELATORIOS",
-                    "ERROS DEVOLUÇÃO",
-                    "FECHAMENTO",
-                    "GERENCIAL",
-                    "NFE EM GERAL",
-                    "REEMBOLSO",
-            ],
-            image: "assets/img/Teilor.jpg",
-        },
-        {
-            name: "Yasmin Caroline Scaglia",
-            role: "Analista de Suporte de Sistemas Junior",
-            bio: [
-                    "CADASTRO DE APÓLICE",
-                    "CCL-X",
-                    "CHAVE DE REGISTRO",
-                    "GERAR RELATÓRIOS",
-                    "INSTALAÇÕES EM GERAL",
-                    "SMTP",
-            ],
-            image: "assets/img/Yasmin.jpg",
-        },
+        ...colaboradores
+            .filter(c => c.ativo !== false)
+            .map(c => ({ name: c.nome, role: c.cargo, bio: c.atividades || [], image: c.foto })),
     ];
 
 const carousel = document.getElementById('carousel');
@@ -188,15 +79,15 @@ const carousel = document.getElementById('carousel');
         }
 
         const assignmentsHtml = member.bio
-            .map((a, i) => `<span class="assignment-item" style="animation-delay:${50 * i}ms;">${a}</span>`)
+            .map((a, i) => `<span class="assignment-item" style="animation-delay:${50 * i}ms;">${escapeHtml(a)}</span>`)
             .join('');
  
         card.innerHTML = `
             <div class="photo-wrapper">
-                <img src="${member.image}" class="profile-photo" alt="${member.name}">
+                <img src="${escapeHtml(member.image)}" class="profile-photo" alt="${escapeHtml(member.name)}">
             </div>
-            <h4 class="member-name">${member.name}</h4>
-            <p class="role-text-color member-role">${member.role}</p>
+            <h4 class="member-name">${escapeHtml(member.name)}</h4>
+            <p class="role-text-color member-role">${escapeHtml(member.role)}</p>
             <div class="assignments-list">${assignmentsHtml}</div>
         `;
         return card;

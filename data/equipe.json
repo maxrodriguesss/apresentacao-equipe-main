@@ -1,0 +1,159 @@
+{
+  "colaboradores": [
+    {
+      "nome": "Edio Levi da Silva Lopes",
+      "cargo": "Analista de Suporte de Sistemas Sênior",
+      "atividades": [
+        "BANCO DE OFERTAS",
+        "FATURAMENTO / EMISSÃO DE CONTRATOS",
+        "FECHAMENTO",
+        "GERENCIAL",
+        "REEMBOLSO",
+        "SUGESTÃO DE MELHORIA",
+        "SUPORTE N3",
+        "TRANSFERENCIAS - MOVIMENTAÇÕES FINANCEIRAS"
+      ],
+      "foto": "assets/img/Edio.jpg",
+      "ativo": true
+    },
+    {
+      "nome": "Gabrielle Amatte Santos",
+      "cargo": "Jovem Aprendiz",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CHAVE DE REGISTRO",
+        "INSTALAÇÕES EM GERAL",
+        "SMTP",
+        "SUGESTÕES DE MELHORIA",
+        "SUPORTE A CONSULTORES"
+      ],
+      "foto": "assets/img/Gabrielle.png",
+      "ativo": false
+    },
+    {
+      "nome": "Jeannelis Marquez Napoles",
+      "cargo": "Analista de Suporte de Sistemas Junior (Expansão Internacional)",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CHAVE DE REGISTRO",
+        "GERAR RELATÓRIOS",
+        "IMPLANTAÇÃO DE LOJAS",
+        "INSTALAÇÕES EM GERAL",
+        "ORIENTAÇÃO DE ACESSOS",
+        "SMTP",
+        "SUPORTE A CONSULTORES (INTERNACIONAL)"
+      ],
+      "foto": "assets/img/Jeannelis.jpg",
+      "ativo": true
+    },
+    {
+      "nome": "Julia Dias Magalhães",
+      "cargo": "Analista de Suporte de Sistemas Junior",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CCL-X",
+        "CHAVE DE REGISTRO",
+        "GERAR RELATÓRIOS",
+        "INSTALAÇÕES EM GERAL",
+        "SMTP"
+      ],
+      "foto": "assets/img/Julia.jpg",
+      "ativo": true
+    },
+    {
+      "nome": "Maxwell Rodrigues",
+      "cargo": "Analista de Suporte de Sistemas Junior",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CADASTRO DE EQUIPAMENTOS",
+        "CHAVE DE REGISTRO",
+        "CONTRATO DIGITAL",
+        "ERRO BOLETOS",
+        "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
+        "ERROS DEVOLUÇÃO",
+        "HOMOLOGAÇÃO BOLETOS",
+        "HOMOLOGAÇÃO PIX DINAMICO",
+        "IMPLANTAÇÃO DE LOJAS",
+        "MOVIMENTAÇÕES FINANCEIRAS",
+        "NFE EM GERAL",
+        "NFSE EM GERAL",
+        "ROTEIRO DIGITAL",
+        "SANKHYA",
+        "SMTP",
+        "TRANSFERENCIAS ESTOQUE - ERROS DE MOVIMENTAÇÕES"
+      ],
+      "foto": "assets/img/Max.png",
+      "ativo": false
+    },
+    {
+      "nome": "Pablo Novais Ramos",
+      "cargo": "Analista de Suporte de Sistemas Junior",
+      "atividades": [
+        "AFASTAMENTO DIGITAL",
+        "CADASTRO DE APÓLICE",
+        "CADASTRO DE EQUIPAMENTOS",
+        "CCL-X",
+        "CONTAGEM DIGTAL",
+        "CONTRATO DIGITAL",
+        "ERRO BOLETOS",
+        "ERRO PIX DINAMICO E LINK DE PAGAMENTO",
+        "ERROS DEVOLUÇÃO",
+        "FATURAMENTO / EMISSÃO DE CONTRATOS",
+        "HOMOLOGAÇÃO BOLETOS",
+        "HOMOLOGAÇÃO PIX DINAMICO",
+        "IMPLANTAÇÃO DE LOJAS",
+        "ROTEIRO DIGITAL",
+        "SANKHYA",
+        "SUPORTE A CONSULTORES"
+      ],
+      "foto": "assets/img/Pablo.png",
+      "ativo": false
+    },
+    {
+      "nome": "Rafael Fernandes",
+      "cargo": "Estagiario de Suporte de Sistemas",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CCL-X",
+        "CHAVE DE REGISTRO",
+        "GERAR RELATÓRIOS",
+        "INSTALAÇÕES EM GERAL",
+        "SMTP"
+      ],
+      "foto": "assets/img/Rafael.jpg",
+      "ativo": true
+    },
+    {
+      "nome": "Teilor Willian Apolinário",
+      "cargo": "Analista de Suporte de Sistemas Junior",
+      "atividades": [
+        "AFASTAMENTO DIGITAL",
+        "BANCO DE OFERTAS",
+        "CADASTRO DE APÓLICE",
+        "CONTAGEM DIGITAL",
+        "ERRO RELATORIOS",
+        "ERROS DEVOLUÇÃO",
+        "FECHAMENTO",
+        "GERENCIAL",
+        "NFE EM GERAL",
+        "REEMBOLSO"
+      ],
+      "foto": "assets/img/Teilor.jpg",
+      "ativo": true
+    },
+    {
+      "nome": "Yasmin Caroline Scaglia",
+      "cargo": "Analista de Suporte de Sistemas Junior",
+      "atividades": [
+        "CADASTRO DE APÓLICE",
+        "CCL-X",
+        "CHAVE DE REGISTRO",
+        "GERAR RELATÓRIOS",
+        "INSTALAÇÕES EM GERAL",
+        "SMTP"
+      ],
+      "foto": "assets/img/Yasmin.jpg",
+      "ativo": true
+    }
+  ]
+}
