@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "SMTP",
                     "SUPORTE A CONSULTORES (INTERNACIONAL)"
             ],
-            image: "assets/img/Jeannelis.png",
+            image: "assets/img/Jeannelis.jpg",
         },
         {
             name: "Julia Dias Magalhães",
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Julia.png",
+            image: "assets/img/Julia.jpg",
         },
         // {
         //     name: "Maxwell Rodrigues",
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Rafael.png",
+            image: "assets/img/Rafael.jpg",
         },
         {
             name: "Teilor Willian Apolinário",
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "NFE EM GERAL",
                     "REEMBOLSO",
             ],
-            image: "assets/img/Teilor.png",
+            image: "assets/img/Teilor.jpg",
         },
         {
             name: "Yasmin Caroline Scaglia",
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "INSTALAÇÕES EM GERAL",
                     "SMTP",
             ],
-            image: "assets/img/Yasmin.png",
+            image: "assets/img/Yasmin.jpg",
         },
     ];
 
